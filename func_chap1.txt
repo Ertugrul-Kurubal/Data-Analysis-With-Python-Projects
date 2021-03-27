@@ -1,0 +1,18 @@
+import numpy as np 
+import pandas as pd
+
+df = pd.read_csv("police.csv")
+
+df.drop(['county_name','state'], axis=1, inplace=True)
+
+df["is_arrested"] = df["is_arrested"].astype('bool')
+
+df["stop_date"]+ " "+df["stop_time"]
+
+pd.to_datetime(df["stop_date"]+ " "+df["stop_time"])
+
+df["stop_datetime"] = pd.to_datetime(df["stop_date"]+ " "+df["stop_time"])
+
+df = df.set_index("stop_datetime")
+
+df
